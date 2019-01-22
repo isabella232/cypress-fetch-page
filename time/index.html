@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1>Downloading 10 images</h1>
+<h2 id='seconds-counter'></h2>
+<script>
+    const el = document.getElementById('seconds-counter');
+
+    const images = [];
+    for (let i = 1; i <= 10; ++i) {
+        images.push(`smurfs${i}.jpg`);
+    }
+    const t0 = performance.now();
+    Promise.all(images.map(image => fetch(image, {cache: 'force-cache', credentials: 'same-origin'}))).then(() => {
+        const t1 = performance.now();
+        el.innerText = `${t1 - t0} milliseconds.`;
+        console.log(`${t1 - t0} milliseconds.`)
+    }).catch(e => {
+        console.error(e)
+    })
+
+    setTimeout(() => {
+
+    Promise.all(images.map(image => fetch(image, {cache: 'force-cache', credentials: 'same-origin'}))).then(() => {
+
+    }).catch(e => {
+        console.error(e)
+    })
+    }, 1000)
+</script>
+</body>
+</html>
+
