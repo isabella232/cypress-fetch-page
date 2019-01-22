@@ -21,15 +21,6 @@
     }).catch(e => {
         console.error(e)
     })
-
-    setTimeout(() => {
-
-    Promise.all(images.map(image => fetch(image, {cache: 'force-cache', credentials: 'same-origin'}))).then(() => {
-
-    }).catch(e => {
-        console.error(e)
-    })
-    }, 1000)
 </script>
 </body>
 </html>
