@@ -11,7 +11,7 @@
 
     const images = [];
     for (let i = 1; i <= 100; ++i) {
-        images.push(`smurfs${i}.jpg`);
+        images.push(`files/smurfs${i}.jpg`);
     }
     const t0 = performance.now();
     Promise.all(images.map(image => fetch(image, {cache: 'force-cache', credentials: 'same-origin'}))).then(() => {
